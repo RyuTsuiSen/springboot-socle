@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Properties>
+		<Property name="log-path">target</Property>
+	</Properties>
+	<Appenders>
+		<Console name="Console-Appender" target="SYSTEM_OUT">
+			<PatternLayout>
+				<pattern>
+					[%level] %d{yyyy-MM-dd HH:mm:ss.SSS} %c{1} - %msg %n
+				</pattern>
+				>
+			</PatternLayout>
+		</Console>
+		<Console name="BusinessConsole" target="SYSTEM_OUT">
+			<PatternLayout>
+				<pattern>
+					[%level];%d{yyyy-MM-dd HH:mm:ss.SSS};%c{1};%X{conversationId};%X{consumerName};%X{serviceName}.%X{operationName} %X{version};%msg %n
+				</pattern>
+			</PatternLayout>
+		</Console>
+		<File name="App-File-Appender" fileName="${log-path}/app_log.log">
+			<PatternLayout>
+				<pattern>
+					[%level];%d{yyyy-MM-dd HH:mm:ss.SSS};%c{1};%X{conversationId};%X{consumerName};%X{serviceName}.%X{operationName} %X{version};%msg %n
+				</pattern>
+			</PatternLayout>
+		</File>
+		<File name="Properties-File-Appender" fileName="${log-path}/audit_properties.log">
+			<PatternLayout>
+				<pattern>
+					[%level] %d{yyyy-MM-dd HH:mm:ss.SSS} - %msg %n
+				</pattern>
+			</PatternLayout>
+		</File>
+	</Appenders>
+	<Loggers>
+		<Logger name="APPLICATION.AUDIT" level="ALL" additivity="false">
+			<AppenderRef ref="App-File-Appender" />
+			<AppenderRef ref="BusinessConsole" />
+		</Logger>
+		<Logger name="AUDIT.PROPERTIES" level="ALL" additivity="false">
+			<AppenderRef ref="Properties-File-Appender" />
+			<AppenderRef ref="Console-Appender" />
+		</Logger>
+		<Logger name="org.apache.cxf.phase.PhaseInterceptorChain" level="OFF" additivity="false">
+		</Logger>
+		<Logger name="com.netflix.config" level="OFF" additivity="false">
+		</Logger>
+		<Root level="INFO">
+			<AppenderRef ref="Console-Appender" />
+		</Root>
+	</Loggers>
+</Configuration>
