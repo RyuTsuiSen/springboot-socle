@@ -3,16 +3,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.3.RELEASE</version>
-	</parent>
-
 	<groupId>fr.trandutrieu.remy</groupId>
-	<artifactId>springboot-socle</artifactId>
+	<artifactId>springboot-socle-parent</artifactId>
+	<name>springboot-socle-parent</name>
 	<version>1.0.0-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
 	<scm>
 		<connection>scm:git:ssh://git@github.com/RyuTsuiSen/springboot-socle.git</connection>
@@ -26,127 +21,128 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-spring-boot-starter-jaxws</artifactId>
-			<version>3.2.5</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-logging</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-tomcat</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
+	<modules>
+		<module>springboot-socle-webservices</module>
+		<module>springboot-socle-soap</module>
+		<module>springboot-socle-rest</module>
+		<module>springboot-socle</module>
+	</modules>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web-services</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-tomcat</artifactId>
-				</exclusion>
-				
-			</exclusions>
-		</dependency>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-spring-boot-starter-jaxws</artifactId>
+				<version>3.2.5</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-starter-logging</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-starter-tomcat</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jersey</artifactId>
-		</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>2.0.3.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-		</dependency>
+			<dependency>
+				<groupId>com.netflix.archaius</groupId>
+				<artifactId>archaius-core</artifactId>
+				<version>0.7.6</version>
+			</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-log4j2</artifactId>
-		</dependency>
+			<dependency>
+				<groupId>commons-configuration</groupId>
+				<artifactId>commons-configuration</artifactId>
+				<version>1.8</version>
+			</dependency>
 
-		<!-- https://mvnrepository.com/artifact/com.netflix.archaius/archaius-core -->
-		<dependency>
-			<groupId>com.netflix.archaius</groupId>
-			<artifactId>archaius-core</artifactId>
-			<version>0.7.6</version>
-		</dependency>
+			<dependency>
+				<groupId>org.junit.jupiter</groupId>
+				<artifactId>junit-jupiter-api</artifactId>
+				<version>5.2.0</version>
+				<scope>test</scope>
+			</dependency>
 
-		<dependency>
-			<groupId>commons-configuration</groupId>
-			<artifactId>commons-configuration</artifactId>
-			<version>1.8</version>
-		</dependency>
+			<dependency>
+				<groupId>org.junit.jupiter</groupId>
+				<artifactId>junit-jupiter-engine</artifactId>
+				<version>5.2.0</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.junit.platform</groupId>
+				<artifactId>junit-platform-launcher</artifactId>
+				<version>1.2.0</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.junit.platform</groupId>
+				<artifactId>junit-platform-runner</artifactId>
+				<version>1.2.0</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-core -->
+			<dependency>
+				<groupId>org.hamcrest</groupId>
+				<artifactId>hamcrest-all</artifactId>
+				<version>1.3</version>
+				<scope>test</scope>
+			</dependency>
 
+			<dependency>
+				<groupId>com.netflix.hystrix</groupId>
+				<artifactId>hystrix-core</artifactId>
+				<version>1.5.12</version>
+			</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-api</artifactId>
-			<version>5.2.0</version>
-			<scope>test</scope>
-		</dependency>
+			<dependency>
+				<groupId>com.netflix.hystrix</groupId>
+				<artifactId>hystrix-metrics-event-stream</artifactId>
+				<version>1.5.12</version>
+			</dependency>
 
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-engine</artifactId>
-			<version>5.2.0</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.platform</groupId>
-			<artifactId>junit-platform-launcher</artifactId>
-			<version>1.2.0</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.platform</groupId>
-			<artifactId>junit-platform-runner</artifactId>
-			<version>1.2.0</version>
-			<scope>test</scope>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-core -->
-		<dependency>
-			<groupId>org.hamcrest</groupId>
-			<artifactId>hamcrest-all</artifactId>
-			<version>1.3</version>
-			<scope>test</scope>
-		</dependency>
+			<dependency>
+				<groupId>com.netflix.hystrix</groupId>
+				<artifactId>hystrix-servo-metrics-publisher</artifactId>
+				<version>1.5.12</version>
+			</dependency>
 
-		<dependency>
-			<groupId>com.netflix.hystrix</groupId>
-			<artifactId>hystrix-core</artifactId>
-			<version>1.5.12</version>
-		</dependency>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>4.0.1</version>
+				<scope>provided</scope>
+			</dependency>
 
-		<dependency>
-			<groupId>com.netflix.hystrix</groupId>
-			<artifactId>hystrix-metrics-event-stream</artifactId>
-			<version>1.5.12</version>
-		</dependency>
+			<dependency>
+				<groupId>fr.trandutrieu.remy</groupId>
+				<artifactId>springboot-socle-rest</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 
-		<dependency>
-			<groupId>com.netflix.hystrix</groupId>
-			<artifactId>hystrix-servo-metrics-publisher</artifactId>
-			<version>1.5.12</version>
-		</dependency>
+			<dependency>
+				<groupId>fr.trandutrieu.remy</groupId>
+				<artifactId>springboot-socle-soap</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 
-
-		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>4.0.1</version>
-			<scope>provided</scope>
-		</dependency>
-
-
-	</dependencies>
+			<dependency>
+				<groupId>fr.trandutrieu.remy</groupId>
+				<artifactId>springboot-socle-webservices</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<distributionManagement>
 		<repository>
