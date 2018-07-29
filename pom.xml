@@ -10,8 +10,8 @@
 	<packaging>pom</packaging>
 
 	<scm>
-		<connection>scm:git:ssh://git@github.com/RyuTsuiSen/springboot-socle.git</connection>
-		<url>git:ssh://git@github.com/RyuTsuiSen/springboot-socle.git</url>
+		<connection>scm:git:ssh://git@github.com/RyuTsuiSen/springboot-socle-parent.git</connection>
+		<url>git:ssh://git@github.com/RyuTsuiSen/springboot-socle-parent.git</url>
 	</scm>
 
 	<properties>
