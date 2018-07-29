@@ -3,25 +3,25 @@
 	<handler-chain>
 		<handler>
 			<handler-name>ErrorWebServiceHandler</handler-name>
-			<handler-class>fr.trandutrieu.remy.socle.webservices.soap.handlers.ErrorWebServiceHandler
+			<handler-class>fr.trandutrieu.remy.socle.soap.handlers.ErrorWebServiceHandler
 			</handler-class>
 		</handler>
 
 		<handler>
 			<handler-name>Authorization</handler-name>
-			<handler-class>fr.trandutrieu.remy.socle.webservices.soap.handlers.AuthorizationHandler
+			<handler-class>fr.trandutrieu.remy.socle.soap.handlers.AuthorizationHandler
 			</handler-class>
 		</handler>
 
 		<handler>
 			<handler-name>Authentication</handler-name>
-			<handler-class>fr.trandutrieu.remy.socle.webservices.soap.handlers.AuthenticationHandler
+			<handler-class>fr.trandutrieu.remy.socle.soap.handlers.AuthenticationHandler
 			</handler-class>
 		</handler>
 		
 		<handler>
 			<handler-name>AuditInOut</handler-name>
-			<handler-class>fr.trandutrieu.remy.socle.webservices.soap.handlers.AuditInOutHandler
+			<handler-class>fr.trandutrieu.remy.socle.soap.handlers.AuditInOutHandler
 			</handler-class>
 		</handler>
 	</handler-chain>
