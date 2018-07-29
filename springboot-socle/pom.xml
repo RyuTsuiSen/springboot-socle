@@ -28,17 +28,14 @@
 				<artifactId>springboot-socle-soap</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+			
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>2.0.3.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<configuration>
-					<skip>true</skip>
-					<wtpversion>2.0</wtpversion>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 </project>

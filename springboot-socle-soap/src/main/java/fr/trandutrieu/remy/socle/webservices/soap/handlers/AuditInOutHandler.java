@@ -74,6 +74,7 @@ public class AuditInOutHandler implements SOAPHandler<SOAPMessageContext > {
 	}
 
 	private void addContextBeanByHeaderRequired(SOAPMessageContextImpl mc, ContextBean bean) {
+		@SuppressWarnings("unchecked")
 		final Map<String, List<String>> http_headers = (Map<String, List<String>>) mc.get(MessageContext.HTTP_REQUEST_HEADERS);
 		String internalId = UUID.randomUUID().toString() + "#";
 		bean.setConversationID(!StringUtils.isEmpty(getCorrelationId(http_headers)) ? internalId+getCorrelationId(http_headers) : internalId+"correlationIdMissing");
@@ -95,6 +96,7 @@ public class AuditInOutHandler implements SOAPHandler<SOAPMessageContext > {
 	}
 
 	private String checkHeaders(SOAPMessageContextImpl mc) {
+		@SuppressWarnings("unchecked")
 		final Map<String, List<String>> http_headers = (Map<String, List<String>>) mc.get(MessageContext.HTTP_REQUEST_HEADERS);
 		if (StringUtils.isEmpty(getCorrelationId(http_headers))) {
 			return "correlationId missing";
