@@ -26,11 +26,6 @@ import fr.trandutrieu.remy.socle.context.ContextManager;
 import fr.trandutrieu.remy.socle.exceptions.Error;
 import fr.trandutrieu.remy.socle.webservices.inout.BusinessMessage.BusinessMessageBuilder;
 
-/**
- * Filter to validate required technical headers
- *
- * @author Oualid TOUARI
- */
 @Provider
 @Priority(FilterPriority.HEADERS_CHECKING)
 public class RequestHeadersCheckerFilter implements ContainerRequestFilter {

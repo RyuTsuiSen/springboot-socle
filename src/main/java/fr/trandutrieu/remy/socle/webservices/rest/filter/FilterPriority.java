@@ -1,10 +1,5 @@
 package fr.trandutrieu.remy.socle.webservices.rest.filter;
 
-/**
- * Constants filters priorities
- *
- * @author Oualid TOUARI
- */
 enum FilterPriority {
 	;
 	// IN - REQUEST

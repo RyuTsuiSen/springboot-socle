@@ -17,11 +17,6 @@ import fr.trandutrieu.remy.socle.audit.Audit.Level;
 import fr.trandutrieu.remy.socle.exceptions.Error;
 import fr.trandutrieu.remy.socle.webservices.inout.BusinessMessage.BusinessMessageBuilder;
 
-/**
- * Filter for authentication purpose
- *
- * @author Oualid TOUARI
- */
 @Provider
 @Priority(FilterPriority.AUTHENTICATION)
 public class AuthenticationFilter implements ContainerRequestFilter { 
