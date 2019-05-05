@@ -4,13 +4,13 @@
 	<groupId>fr.trandutrieu.remy</groupId>
 	<artifactId>springboot-socle-parent</artifactId>
 	<name>springboot-socle-parent</name>
-	<version>1.0.1</version>
+	<version>1.0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<scm>
 		<connection>scm:git:ssh://git@github.com/RyuTsuiSen/springboot-socle-parent.git</connection>
 		<url>git:ssh://git@github.com/RyuTsuiSen/springboot-socle-parent.git</url>
-	  <tag>springboot-socle-parent-1.0.1</tag>
+	  <tag>HEAD</tag>
   </scm>
 
 	<properties>
