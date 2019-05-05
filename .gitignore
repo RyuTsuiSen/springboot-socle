@@ -29,3 +29,4 @@ org.*
 /bin/
 /.vscode/
 /.factorypath
+/.idea
